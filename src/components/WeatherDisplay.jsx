@@ -1,19 +1,21 @@
-import CloudyWeather from "../images/weather-icons/mostlycloudy.svg";
-function WeatherDisplay() {
+import { imageChooser } from "../extra/imageChoose";
+
+function WeatherDisplay({ response }) {
+  const res = response && response.list[0];
+
   return (
     <div className="body">
-      <img src={CloudyWeather} className="weather" />
-      <br></br>
-      <h3>overcast clouds</h3>
-      <br></br>
-      <br></br>
-      <h2>Temperature &nbsp;&nbsp; 10&deg; to 11&deg;</h2>
-      <br></br>
-      <h4>Humidity &nbsp; 78%" &nbsp;&nbsp;&nbsp; Pressure &nbsp;1008.48</h4>
- 
-
-     
-   
+      {console.log(res)}
+      {res && (
+        <div>
+          {imageChooser(res.weather[0].main, "weather")}
+          <h3>{res.weather[0].description}</h3>
+          <h2>{`Temperature ${(res.main.temp_min + 273.15).toFixed(1)}K to ${(
+            res.main.temp_max + 273.15
+          ).toFixed(1)}K`}</h2>
+          <h4>{`Humidity ${res.main.humidity}%    Pressure ${res.main.pressure}`}</h4>
+        </div>
+      )}
     </div>
   );
 }
