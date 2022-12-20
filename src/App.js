@@ -6,11 +6,11 @@ import DaysWeather from "./components/DaysWeather";
 
 function App() {
   return (
-    <div>
-    <FindWeather/>
-    <WeatherDisplay/>
-    <DaysWeather/>
-   </div>
+    <div className="main">
+      <FindWeather />
+      <WeatherDisplay />
+      <DaysWeather />
+    </div>
   );
 }
 
