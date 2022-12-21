@@ -7,7 +7,7 @@ import WeatherDisplay from "./components/WeatherDisplay";
 import HourlyWeatherList from "./components/HourlyWeatherList";
 
 function App() {
-  const [response, setResponse] = useState([]);
+  const [response, setResponse] = useState();
 
   const fetchWeather = async (city) => {
     await axios
@@ -15,15 +15,15 @@ function App() {
         `http://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=8&units=metric&appid=8b0085fe50c89792c823f75df807415e`
       )
       .then((response) => {
-        setResponse((prevState) => [...prevState, response.data]);
+        setResponse(response.data);
       });
   };
 
   return (
     <div className="main">
       <FindWeather fetchWeather={fetchWeather} />
-      <WeatherDisplay response={response[0]} />
-      <HourlyWeatherList response={response[0]} />
+      <WeatherDisplay response={response} />
+      <HourlyWeatherList response={response} />
     </div>
   );
 }
