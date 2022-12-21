@@ -24,6 +24,6 @@ export const imageChooser = (value, className) => {
   } else if (value === "Fog") {
     image = fog;
   } else image = unknown;
-  console.log("TEST", image.toString());
+  // console.log("TEST", image.toString());
   return <img className={className} src={image} alt={"aaa"} />;
 };
