@@ -1,12 +1,11 @@
 import { imageChooser } from "../extra/imageChoose";
-import MostlyCloudy from "../images/weather-icons/mostlycloudy.svg";
 
 const HourlyWeather = ({ response }) => {
   return (
-    <div>
+    <div className="hourly-weather">
       <p>{response.dt_txt.substring(10, 16)}</p>
       {imageChooser(response.weather[0].main, "w1")}
-      <p>{`${response.main.temp}K`}</p>
+      <p>{`${response.main.temp}\u00b0C`}</p>
     </div>
   );
 };

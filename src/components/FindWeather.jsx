@@ -12,7 +12,7 @@ function FindWeather({ fetchWeather }) {
       <input
         type="text"
         className="country"
-        value={city}
+        placeholder="Enter the city name"
         onChange={(e) => setCity(e.target.value)}
       />
       <button onClick={fetchWeatherHandler}>Find Weather</button>

@@ -10,9 +10,7 @@ function WeatherDisplay({ response }) {
         <div>
           {imageChooser(res.weather[0].main, "weather")}
           <h3>{res.weather[0].description}</h3>
-          <h2>{`Temperature ${(res.main.temp_min + 273.15).toFixed(1)}K to ${(
-            res.main.temp_max + 273.15
-          ).toFixed(1)}K`}</h2>
+          <h2>{`Temperature ${res.main.temp_min}\u00b0C to ${res.main.temp_max}\u00b0C`}</h2>
           <h4>{`Humidity ${res.main.humidity}%    Pressure ${res.main.pressure}`}</h4>
         </div>
       )}
